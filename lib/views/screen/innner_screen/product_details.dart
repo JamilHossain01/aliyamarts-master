@@ -1,4 +1,5 @@
 import 'package:aliyamart/provider/cart_provider.dart';
+import 'package:aliyamart/provider/favourite_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,6 +20,8 @@ class _ProductDetailsState extends ConsumerState<ProductDetails> {
   @override
   Widget build(BuildContext context) {
     final _cartProvider = ref.read(cartProvider.notifier);
+    final favrtProviderData = ref.read(favrtProvider.notifier);
+    ref.watch(favrtProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -32,8 +35,31 @@ class _ProductDetailsState extends ConsumerState<ProductDetails> {
             child: badges.Badge(
               badgeContent: const Text('1'), // Replace with actual cart count
               child: IconButton(
-                onPressed: () {}, // Navigate to the cart page
-                icon: const Icon(Icons.favorite_border),
+                onPressed: () {
+                  favrtProviderData.addFavouriteItem(
+                    productName: widget
+                        .productData['productName'], // Removed extra space
+                    productId:
+                        widget.productData['productId'], // Consistent casing
+                    imageUrls: widget.productData['imageUrls'],
+                    productPrice: widget.productData['productPrice'],
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      behavior: SnackBarBehavior.floating,
+                      backgroundColor: Colors.grey,
+                      content: Text(
+                        '${widget.productData["productName"]} added to Favourite',
+                      ),
+                    ),
+                  );
+                },
+                icon: favrtProviderData.favrtItem
+                        .containsKey(widget.productData['productId'])
+                    ? const Icon(Icons.favorite,
+                        color: Colors.red) // If in favorites, show filled heart
+                    : const Icon(
+                        Icons.favorite_border), // Else, show empty heart
               ),
             ),
           ),
