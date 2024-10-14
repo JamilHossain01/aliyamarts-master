@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
           .showSnackBar(SnackBar(content: Text('Login failed: $res')));
     } else {
       setState(() {
-        bool _isLoading = false;
+        bool isLoading = false;
       });
     }
   }
@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: GoogleFonts.getFont('Lato',
                         fontSize: 15, fontWeight: FontWeight.w400),
                   ),
-                  Container(
+                  SizedBox(
                     height: 248,
                     width: 257,
                     child: Image.asset('assets/images/illustration.png'),

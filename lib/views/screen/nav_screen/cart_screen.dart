@@ -93,10 +93,6 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                           ),
                         );
                       },
-                      child: const Text(
-                        'Shop Now',
-                        style: TextStyle(fontSize: 16),
-                      ),
                       style: TextButton.styleFrom(
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(
@@ -105,6 +101,10 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
+                      ),
+                      child: const Text(
+                        'Shop Now',
+                        style: TextStyle(fontSize: 16),
                       ),
                     ),
                   ],
@@ -125,7 +125,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     ListView.builder(
                       shrinkWrap: true,
                       physics:
@@ -152,7 +152,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                                       child: Image.network(cartItem
                                           .imageUrls) // Fallback placeholder image
                                       ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 20,
                                   ),
                                   Column(
@@ -168,8 +168,8 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                                       Container(
                                         height: 40,
                                         width: 120,
-                                        decoration:
-                                            BoxDecoration(color: Colors.blue),
+                                        decoration: const BoxDecoration(
+                                            color: Colors.blue),
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
@@ -179,7 +179,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                                                 _cartProvider.decrementItem(
                                                     cartItem.productID);
                                               },
-                                              icon: Icon(
+                                              icon: const Icon(
                                                 CupertinoIcons.minus,
                                               ),
                                               color: Colors.white,
@@ -190,7 +190,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                                                 _cartProvider.incrementItem(
                                                     cartItem.productID);
                                               },
-                                              icon: Icon(
+                                              icon: const Icon(
                                                 CupertinoIcons.plus,
                                               ),
                                               color: Colors.white,
@@ -204,7 +204,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                                               _cartProvider.removeItem(
                                                   cartItem.productID);
                                             },
-                                            icon: Icon(Icons.delete)),
+                                            icon: const Icon(Icons.delete)),
                                       )
                                     ],
                                   )

@@ -9,7 +9,7 @@ class BannerWidget extends StatefulWidget {
   final double height; // Custom height
   final double width; // Custom width
 
-  BannerWidget({super.key, required this.height, required this.width});
+  const BannerWidget({super.key, required this.height, required this.width});
 
   @override
   _BannerWidgetState createState() => _BannerWidgetState();
@@ -35,18 +35,21 @@ class _BannerWidgetState extends State<BannerWidget> {
               itemBuilder: (context, index, realIndex) {
                 return Container(
                   width: double.infinity, // Ensure it takes full width
-                  margin: const EdgeInsets.symmetric(horizontal: 5.0), // Add margin if necessary
+                  margin: const EdgeInsets.symmetric(
+                      horizontal: 5.0), // Add margin if necessary
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10), // Add corner radius
+                    borderRadius:
+                        BorderRadius.circular(10), // Add corner radius
                     image: DecorationImage(
                       image: NetworkImage(
-                        controller.bannerImages[index], // Image URL from the controller
+                        controller.bannerImages[
+                            index], // Image URL from the controller
                       ),
-                      fit: BoxFit.cover, // Cover the entire container with the image
+                      fit: BoxFit
+                          .cover, // Cover the entire container with the image
                     ),
                   ),
                 );
-
               },
               options: CarouselOptions(
                 height: widget.height, // Set carousel height

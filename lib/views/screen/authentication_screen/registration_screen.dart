@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RegistrationScreen extends StatefulWidget {
-  RegistrationScreen({super.key});
+  const RegistrationScreen({super.key});
 
   @override
   State<RegistrationScreen> createState() => _RegistrationScreenState();
@@ -77,7 +77,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       style: GoogleFonts.getFont('Lato',
                           fontSize: 15, fontWeight: FontWeight.w400),
                     ),
-                    Container(
+                    SizedBox(
                       height: 248,
                       width: 257,
                       child: Image.asset('assets/images/illustration.png'),
