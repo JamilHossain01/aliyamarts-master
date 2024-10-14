@@ -20,7 +20,6 @@ class CartNotifire extends StateNotifier<Map<String, CartModel>> {
     required String description,
     required String category,
     required String imageUrls,
-
   }) {
     if (state.containsKey(productId)) {
       // Update existing product, increasing quantity
@@ -37,7 +36,8 @@ class CartNotifire extends StateNotifier<Map<String, CartModel>> {
           category: state[productId]!.category,
           imageUrls: state[productId]!.imageUrls,
           inStock: state[productId]!.inStock,
-          discount: state[productId]!.discount, productID:state[productId]!.productID,
+          discount: state[productId]!.discount,
+          productID: state[productId]!.productID,
         ),
       };
     } else {
@@ -60,4 +60,33 @@ class CartNotifire extends StateNotifier<Map<String, CartModel>> {
       };
     }
   }
+
+  void incrementItem(String productId) {
+    if (state.containsKey(productId)) {
+      state[productId]!.quantity++;
+    }
+    state = {...state};
+  }
+
+  void decrementItem(String productId) {
+    if (state.containsKey(productId)) {
+      state[productId]!.quantity--;
+    }
+    state = {...state};
+  }
+
+  void removeItem(String productId) {
+    state.remove(productId);
+    state = {...state};
+  }
+
+  double calculateTotalAmount() {
+    double totalAmount = 0.0;
+    state.forEach((productId, cartItem) {
+      totalAmount += cartItem.quantity * cartItem.discount;
+    });
+    return totalAmount;
+  }
+
+  Map<String, CartModel> get cartItem => state;
 }

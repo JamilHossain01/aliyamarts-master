@@ -6,7 +6,7 @@ class CartModel {
   final int inStock;
   final int discount;
 
-  final int quantity;
+  int quantity;
   final String description;
   final String category;
   final String imageUrls;
