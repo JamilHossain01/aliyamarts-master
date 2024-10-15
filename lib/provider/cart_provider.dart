@@ -80,6 +80,11 @@ class CartNotifire extends StateNotifier<Map<String, CartModel>> {
     state = {...state};
   }
 
+  void clearData() {
+    state.clear();
+    state = {...state};
+  }
+
   double calculateTotalAmount() {
     double totalAmount = 0.0;
     state.forEach((productId, cartItem) {

@@ -1,41 +1,57 @@
+import 'package:aliyamart/models/favourite_mode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../models/favourite_mode.dart';
 
-final favrtProvider =
-    StateNotifierProvider<FavouriteNotifier, Map<String, FavouriteModel>>(
-  (ref) {
-    return FavouriteNotifier();
+final favoriteProvider =
+StateNotifierProvider<FavoriteNotifier, Map<String, FavouriteModel>>(
+      (ref) {
+    return FavoriteNotifier();
   },
 );
 
-class FavouriteNotifier extends StateNotifier<Map<String, FavouriteModel>> {
-  FavouriteNotifier() : super({});
+class FavoriteNotifier extends StateNotifier<Map<String, FavouriteModel>> {
+  FavoriteNotifier() : super({});
 
-  void addFavouriteItem({
+  //is to add product to favorite
+
+  void addProductToFavorite({
     required String productName,
-    required String productId, // Corrected spelling
-    required List imageUrls,
-    required int productPrice, // Corrected spelling
+    required String productId,
+    required List imageUrl,
+    required int productPrice,
   }) {
-    // Always add or update the item in favorites
-
     state[productId] = FavouriteModel(
-      productName: productName,
-      productId: productId, // Corrected spelling
+        productName: productName,
+        productId: productId,
+        imageUrls: imageUrl,
+        productPrice: productPrice);
 
-      productPrice: productPrice,
-      imageUrls: imageUrls, // Corrected spelling
-    );
-    state = {
-      ...state,
-    };
-  }
-
-  void removeAll() {
-    state.clear();
+    //notify listeners that the state has changed
 
     state = {...state};
   }
 
-  Map<String, FavouriteModel> get favrtItem => state;
+  //remove all item from favorite
+
+  void removeAllItem() {
+    state.clear();
+
+    //notify listeners that the state has changed
+
+    state = {...state};
+  }
+
+//remove favorite item
+
+  void removeItem(String productId) {
+    state.remove(productId);
+
+    //notify listeners that the state has changed
+
+    state = {...state};
+  }
+
+//retrive value from the state object
+  Map<String, FavouriteModel> get getFavoriteItem => state;
+
+
 }

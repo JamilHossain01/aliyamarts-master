@@ -1,5 +1,5 @@
 import 'package:aliyamart/controller/category_controller.dart';
-import 'package:aliyamart/views/screen/main_screen.dart';
+import 'package:aliyamart/views/screens/authentication_screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MainScreen(),
+      home: const LoginScreen(),
       initialBinding: BindingsBuilder(
         () {
           Get.put<CategoryController>(CategoryController());
