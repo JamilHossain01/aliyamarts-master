@@ -70,7 +70,7 @@ class ProductItemWidget extends StatelessWidget {
               child: Text(
                 productData['category'],
                 style: GoogleFonts.lato(
-                  color: Color(0xFF7F8E9D),
+                  color: const Color(0xFF7F8E9D),
                   fontSize: 12,
                   letterSpacing: 0.2,
                 ),
@@ -125,7 +125,7 @@ class ProductItemWidget extends StatelessWidget {
                         width: 130,
                         height: 110,
                         decoration: BoxDecoration(
-                          color: Color(
+                          color: const Color(
                             0xFFFFF5C3,
                           ),
                           border: Border.all(

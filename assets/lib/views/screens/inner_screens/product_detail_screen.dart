@@ -208,7 +208,7 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
                 Text(
                   'Size:',
                   style: GoogleFonts.lato(
-                    color: Color(
+                    color: const Color(
                       0xFF343434,
                     ),
                     fontSize: 16,
@@ -234,7 +234,7 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsets.all(8),
+                                padding: const EdgeInsets.all(8),
                                 child: Text(
                                   widget.productData['productSize'][index],
                                   style: GoogleFonts.lato(
@@ -258,7 +258,7 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
                 Text(
                   'About',
                   style: GoogleFonts.lato(
-                    color: Color(0xFF363330),
+                    color: const Color(0xFF363330),
                     fontSize: 16,
                     letterSpacing: 1,
                   ),
@@ -272,7 +272,7 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
         ],
       ),
       bottomSheet: Padding(
-        padding:const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: InkWell(
           onTap: () {
             cartProviderData.addProductToCart(
@@ -298,7 +298,7 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
             height: 48,
             clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(
-              color: Color(
+              color: const Color(
                 0xFF3B54EE,
               ),
               borderRadius: BorderRadius.circular(

@@ -19,7 +19,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
   @override
   Widget build(BuildContext context) {
     final cartData = ref.watch(cartProvider);
-    final _cartProvider = ref.read(cartProvider.notifier);
+    final cartProvider = ref.read(cartProvider.notifier);
     final totalAmount = ref.read(cartProvider.notifier).calculateTotalAmount();
     return Scaffold(
       appBar: PreferredSize(
@@ -181,7 +181,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                       final cartItem = cartData.values.toList()[index];
 
                       return Padding(
-                        padding: EdgeInsets.all(8),
+                        padding: const EdgeInsets.all(8),
                         child: Card(
                           child: SizedBox(
                             height: 200,
@@ -197,7 +197,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.all(8),
+                                  padding: const EdgeInsets.all(8),
                                   child: Column(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
@@ -242,7 +242,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                                               children: [
                                                 IconButton(
                                                   onPressed: () {
-                                                    _cartProvider.decrementItem(
+                                                    cartProvider.decrementItem(
                                                         cartItem.productID);
                                                   },
                                                   icon: const Icon(
@@ -258,7 +258,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                                                 ),
                                                 IconButton(
                                                   onPressed: () {
-                                                    _cartProvider.incrementItem(
+                                                    cartProvider.incrementItem(
                                                         cartItem.productID);
                                                   },
                                                   icon: const Icon(
@@ -271,7 +271,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                                           ),
                                           IconButton(
                                             onPressed: () {
-                                              _cartProvider.removeItem(
+                                              cartProvider.removeItem(
                                                   cartItem.productID);
                                             },
                                             icon: const Icon(

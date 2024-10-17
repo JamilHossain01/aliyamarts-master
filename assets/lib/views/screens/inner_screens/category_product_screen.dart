@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import '../../../models/category.dart';
 import '../nav_screens/widgets/popularItem.dart';
 
-
 class CategoryProductScreen extends StatelessWidget {
   final CategoryModel categoryModel;
 
@@ -12,7 +11,7 @@ class CategoryProductScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Stream<QuerySnapshot> _productStream = FirebaseFirestore.instance
+    final Stream<QuerySnapshot> productStream = FirebaseFirestore.instance
         .collection('products')
         .where('category', isEqualTo: categoryModel.categoryName)
         .snapshots();
@@ -28,7 +27,7 @@ class CategoryProductScreen extends StatelessWidget {
         ),
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: _productStream,
+        stream: productStream,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
             return const Text('Something went wrong');

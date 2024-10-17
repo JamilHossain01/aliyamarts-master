@@ -89,7 +89,7 @@ class _checkoutScreenState extends ConsumerState<checkoutScreen> {
                           decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(
-                              color: Color(
+                              color: const Color(
                                 0xFFEFF0F2,
                               ),
                             ),
@@ -208,7 +208,7 @@ class _checkoutScreenState extends ConsumerState<checkoutScreen> {
                   ),
                 ),
               ),
-            const  SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               const Text(

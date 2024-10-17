@@ -112,13 +112,13 @@ class FavoriteScreen extends ConsumerWidget {
               itemBuilder: (context, index) {
                 final wishData = wishItemData.values.toList()[index];
                 return Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   child: Center(
                     child: Container(
                       width: 335,
                       height: 96,
                       clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: SizedBox(
                         width: double.infinity,
                         child: Stack(
@@ -134,7 +134,7 @@ class FavoriteScreen extends ConsumerWidget {
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(
-                                    color: Color(
+                                    color: const Color(
                                       0xFFEFF0F2,
                                     ),
                                   ),
@@ -150,7 +150,7 @@ class FavoriteScreen extends ConsumerWidget {
                                 height: 78,
                                 clipBehavior: Clip.antiAlias,
                                 decoration: BoxDecoration(
-                                  color: Color(
+                                  color: const Color(
                                     0xFFBCC5FF,
                                   ),
                                   borderRadius: BorderRadius.circular(
@@ -166,7 +166,7 @@ class FavoriteScreen extends ConsumerWidget {
                                 wishData.productPrice.toRadixString(2),
                                 style: GoogleFonts.getFont(
                                   "Lato",
-                                  color: Color(
+                                  color: const Color(
                                     0xFF0B0C1E,
                                   ),
                                   fontWeight: FontWeight.w600,

@@ -116,7 +116,9 @@ class OrderScreen extends StatelessWidget {
                   onTap: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return OrderDetailScreen(orderData: orderData,);
+                      return OrderDetailScreen(
+                        orderData: orderData,
+                      );
                     }));
                   },
                   child: Container(
@@ -257,7 +259,7 @@ class OrderScreen extends StatelessWidget {
                                       clipBehavior: Clip.antiAlias,
                                       decoration: BoxDecoration(
                                         color: orderData['delivered'] == true
-                                            ? Color(0xFF3C55EF)
+                                            ? const Color(0xFF3C55EF)
                                             : orderData['processing'] == true
                                                 ? Colors.purple
                                                 : Colors.red,

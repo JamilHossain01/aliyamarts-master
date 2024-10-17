@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 class OrderDetailScreen extends StatefulWidget {
   final dynamic orderData;
 
-  OrderDetailScreen({super.key, required this.orderData});
+  const OrderDetailScreen({super.key, required this.orderData});
 
   @override
   State<OrderDetailScreen> createState() => _OrderDetailScreenState();
@@ -203,7 +203,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                 clipBehavior: Clip.antiAlias,
                                 decoration: BoxDecoration(
                                   color: widget.orderData['delivered'] == true
-                                      ? Color(0xFF3C55EF)
+                                      ? const Color(0xFF3C55EF)
                                       : widget.orderData['processing'] == true
                                           ? Colors.purple
                                           : Colors.red,
@@ -262,7 +262,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,

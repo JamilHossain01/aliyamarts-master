@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../controllers/auth_controller.dart';
 import '../main_screen.dart';
 
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -307,7 +306,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text(
                           'Sign Up',
                           style: GoogleFonts.roboto(
-                            color: Color(0xFF103DE5),
+                            color: const Color(0xFF103DE5),
                             fontWeight: FontWeight.bold,
                           ),
                         ),
