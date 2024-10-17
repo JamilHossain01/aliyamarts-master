@@ -1,10 +1,10 @@
+import 'package:aliyamart/provider/cart_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../provider/cart_provider.dart';
 import '../inner_screens/checkout_screen.dart';
 import '../main_screen.dart';
 
@@ -19,7 +19,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
   @override
   Widget build(BuildContext context) {
     final cartData = ref.watch(cartProvider);
-    final cartProvider = ref.read(cartProvider.notifier);
+    final cartProviders = ref.read(cartProvider.notifier);
     final totalAmount = ref.read(cartProvider.notifier).calculateTotalAmount();
     return Scaffold(
       appBar: PreferredSize(
@@ -242,7 +242,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                                               children: [
                                                 IconButton(
                                                   onPressed: () {
-                                                    cartProvider.decrementItem(
+                                                    cartProviders.decrementItem(
                                                         cartItem.productID);
                                                   },
                                                   icon: const Icon(
@@ -258,7 +258,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                                                 ),
                                                 IconButton(
                                                   onPressed: () {
-                                                    cartProvider.incrementItem(
+                                                    cartProviders.incrementItem(
                                                         cartItem.productID);
                                                   },
                                                   icon: const Icon(
@@ -271,7 +271,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                                           ),
                                           IconButton(
                                             onPressed: () {
-                                              cartProvider.removeItem(
+                                              cartProviders.removeItem(
                                                   cartItem.productID);
                                             },
                                             icon: const Icon(
